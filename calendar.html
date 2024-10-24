@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="./Images/logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Calendar</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="https://mdx.mrooms.net/"><img src="./Images/MDX_logo.png" alt="MDX logo" width="145"
+                    height="50"></a>
+            <ul>
+                <li><a href="https://mdx.mrooms.net/">Home</a></li>
+                <li><a href="https://www.play.mdx.ac.uk/#">MDX Play</a></li>
+                <li><a href="calendar.html">My Calendar</a></li>
+                <li><button class="help">Help</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="help_panel">
+        <div class="help-content">
+            <i class="fa fa-times exit"></i>
+            <h1>HELP AREA</h1>
+            <p>You can communicate with the system by voice or chat </p>
+            <p>1. For voice interaction. click the microphone icon found at the bottom right</p>
+            <p>2. You can also write commands in the chat section which pops up</p>
+            <h2>Accepted Commands</h2>
+            <p>⚫ To display this help pannel: "help, guide, assist, commands"</p>
+            <p>⚫ To navigate to UniHub: "home. homepage, main"</p>
+            <p>⚫ To navigate to MDXplay and access recorded lectures: "play, lecture, lectures, video, videos, recording, recordings"</p>
+            <p>⚫ To display next month on calendar: "next month, month after"</p>
+            <p>⚫ To display previous month on calendar: "previous month, month before"</p>
+            <p>⚫ To navigate to today's date on calendar: "today, now"</p>
+            <p>⚫ To prompt system to add a reminder: "reminder"</p>
+            <p>⚫ To prompt system to save reminder: "save, add, submit"</p>
+            <p>⚫ To prompt system to explain how to add reminder: "how, create"</p>
+            <p>⚫ To prompt system to explain how to delete a reminder: "delete, erase"</p>
+            <p>⚫ To close pop-ups: "close"</p>
+        </div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="left">
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fa fa-angle-left prev"></i>
+                        <div class="date">March 2023</div>
+                        <i class="fa fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="days"></div>
+                    <div class="goto-today">
+                        <div class="goto">
+                            <input type="text" placeholder="mm/yyyy" class="date-input" />
+                            <button class="goto-btn">Go</button>
+                        </div>
+                        <button class="today-btn">Today</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="today-date">
+                    <div class="event-day">wed</div>
+                    <div class="event-date">12th december 2022</div>
+                </div>
+                <div class="events"></div>
+                <div class="add-event-wrapper">
+                    <div class="add-event-header">
+                        <div class="title">Add Event</div>
+                        <i class="fa fa-times close"></i>
+                    </div>
+                    <div class="add-event-body">
+                        <div class="add-event-input">
+                            <input type="text" placeholder="Event Name" class="event-name" />
+                        </div>
+                        <div class="add-event-input">
+                            <input type="text" placeholder="hh:mm" class="event-time-from" />
+                        </div>
+                        <div class="add-event-input">
+                            <input type="text" placeholder="hh:mm" class="event-time-to" />
+                        </div>
+                    </div>
+                    <div class="add-event-footer">
+                        <button class="add-event-btn">Add Event</button>
+                    </div>
+                </div>
+            </div>
+            <button class="add-event">
+                <i class="fa fa-plus"></i>
+            </button>
+            <div class="chatbox">
+                <div class="add-event-header">
+                    <div class="title">Chatbox</div>
+                    <i class="fa fa-times ext"></i>
+                </div>
+                <div class="content">
+                    <div class="full-chat-block" id="full-chat-block">
+                        <!-- Message Container -->
+                        <div class="outer-container">
+                            <div class="chat-container">
+                                <!-- Messages -->
+                                <div id="chatbox">
+                                    <h5 id="chat-timestamp"></h5>
+                                    <div id="botStartMessage"></div>
+                                </div>    
+                            </div>
+                        </div>
+                </div>
+                <!-- User input box -->
+                <div class="chat-bar-input-block">
+                    <div id="userInput">
+                        <input id="textInput" class="input-box" type="text" name="msg"
+                            placeholder="Type a message or tap 'Enter' key for help">
+                        <p></p>
+                    </div>
+
+                    <div class="chat-bar-icons">
+                        <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                            onclick="sendButton()"></i>
+                    </div>
+                </div>
+               
+                </div>
+            </div>
+            <button class="vui" id="vui-btn">
+                <i class="fa fa-square"></i>
+            </button>
+            <button class="audio" id="start-btn">
+                <i class="fa fa-microphone"></i>
+            </button>
+            <div class="microphone">
+                <p>Click and say "Hello Hub" to get started</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="vui.js"></script>
+    <script src="calendar.js"></script>
+</body>
+
+</html>
