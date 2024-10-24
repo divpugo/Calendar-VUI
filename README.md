@@ -3,7 +3,7 @@
 ## Project Overview
 This is the final project for the CST3140 module of the BSc Computer Science program at Middlesex University. This repository contains the implementation of a voice-activated interactive calendar designed to help computer science students better manage their academic schedules. By integrating with the UniHub LMS, the application uses HTML, CSS, JavaScript, and the Web Speech API to allow students to interact with their calendar using voice commands, enhancing their self-regulated learning practices.
 
-[Watch the Demo Here (https://youtu.be/ZB-vW4WUqtY])
+[Watch the Demo Here](https://youtu.be/ZB-vW4WUqtY)
 
 ---
 
